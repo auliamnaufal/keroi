@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keroi/screens/login_screen.dart';
+import 'package:keroi/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         primarySwatch: Colors.grey,
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
