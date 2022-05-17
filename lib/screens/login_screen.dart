@@ -16,6 +16,88 @@ class _LoginScreenState extends State<LoginScreen> {
 
   String errorMessage = '';
 
+  Widget appTitle() {
+    return Text(
+      "Keroi",
+      style: TextStyle(
+        color: Colors.blue[600],
+        fontSize: 45,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget emailInput() {
+    return Container(
+      margin: const EdgeInsets.all(20),
+      child: TextFormField(
+        controller: usernameController,
+        autofocus: true,
+        textAlign: TextAlign.left,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue.shade300, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue.shade500, width: 2.0),
+          ),
+          labelText: 'Username',
+          hintText: "Enter your username here",
+          alignLabelWithHint: true,
+          labelStyle: TextStyle(color: Colors.grey.shade500),
+          hintStyle: TextStyle(color: Colors.grey.shade500),
+        ),
+      ),
+    );
+  }
+
+  Widget passwordInput() {
+    return Container(
+      margin: const EdgeInsets.all(20),
+      child: TextFormField(
+        controller: passwordController,
+        obscureText: true,
+        enableSuggestions: false,
+        autocorrect: false,
+        autofocus: true,
+        textAlign: TextAlign.left,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue.shade300, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue.shade500, width: 2.0),
+          ),
+          labelText: 'Password',
+          hintText: "Enter your password here",
+          alignLabelWithHint: true,
+          labelStyle: TextStyle(color: Colors.grey.shade500),
+          hintStyle: TextStyle(color: Colors.grey.shade500),
+        ),
+      ),
+    );
+  }
+
+  Widget submitButton() {
+    return Container(
+      height: 55,
+      width: 120,
+      decoration: const ShapeDecoration(
+          shape: StadiumBorder(), color: Colors.blueAccent),
+      child: MaterialButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: const StadiumBorder(),
+        child: const Text(
+          'Login',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        onPressed: () {
+          checkIfInputIsValid();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,95 +108,22 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                "Keroi",
-                style: TextStyle(
-                  color: Colors.blue[600],
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
+              appTitle(),
+              const SizedBox(
                 height: 32,
               ),
-              Container(
-                margin: const EdgeInsets.all(20),
-                child: TextFormField(
-                  controller: usernameController,
-                  autofocus: true,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.blue.shade300, width: 2.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.blue.shade500, width: 2.0),
-                    ),
-                    labelText: 'Username',
-                    hintText: "Enter your username here",
-                    alignLabelWithHint: true,
-                    labelStyle: TextStyle(color: Colors.grey.shade500),
-                    hintStyle: TextStyle(color: Colors.grey.shade500),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(20),
-                child: TextFormField(
-                  controller: passwordController,
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  autofocus: true,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.blue.shade300, width: 2.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.blue.shade500, width: 2.0),
-                    ),
-                    labelText: 'Password',
-                    hintText: "Enter your password here",
-                    alignLabelWithHint: true,
-                    labelStyle: TextStyle(color: Colors.grey.shade500),
-                    hintStyle: TextStyle(color: Colors.grey.shade500),
-                  ),
-                ),
-              ),
-              Container(
-                height: 55,
-                width: 120,
-                decoration: const ShapeDecoration(
-                  shape: StadiumBorder(),
-                  color: Colors.blueAccent
-                ),
-                child: MaterialButton(
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  shape: const StadiumBorder(),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  onPressed: () {
-                    checkIfInputIsValid();
-                  },
-                ),
-              ),
-              SizedBox(
+              emailInput(),
+              passwordInput(),
+              submitButton(),
+              const SizedBox(
                 height: 12,
               ),
               Text(
                 errorMessage,
                 style: const TextStyle(
-                  color: Colors.red,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500
-                ),
+                    color: Colors.red,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500),
               )
             ],
           ),
@@ -144,7 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       setState(() {
         errorMessage = "Please enter a username and password";
-        
       });
     }
   }

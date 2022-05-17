@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:keroi/screens/login_screen.dart';
 import 'package:keroi/screens/splash_screen.dart';
 
 void main() {
