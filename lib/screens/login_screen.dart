@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:keroi/screens/home/main_page.dart';
 
-import 'home_screen.dart';
+import 'home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeScreen(
+          builder: (context) => MainPage(
             username: usernameController.text,
           ),
         ),

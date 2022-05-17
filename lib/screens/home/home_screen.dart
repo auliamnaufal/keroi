@@ -38,8 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 15.0, left: 20.0, right: 20.0),
@@ -184,13 +183,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     const SizedBox(
                                       height: 12,
                                     ),
-                                    Text(
-                                      book.title,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                      child: Text(
+                                        book.title,
+                                        style: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
                                     const SizedBox(
                                       height: 12,
@@ -254,7 +256,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-      ),
     );
   }
 
