@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:keroi/model/books.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../theme.dart';
 
@@ -43,16 +46,16 @@ class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _showBackToTopButton == false
-          ? null
-          : FloatingActionButton(
-              onPressed: _scrollToTop,
-              child: const Icon(
-                Icons.arrow_upward,
-                color: Colors.black,                
+        floatingActionButton: _showBackToTopButton == false
+            ? null
+            : FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: const Icon(
+                  Icons.arrow_upward,
+                  color: Colors.black,
+                ),
+                backgroundColor: Colors.grey.shade100,
               ),
-              backgroundColor: Colors.grey.shade100,
-            ),
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: IconButton(
@@ -97,7 +100,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         prefixIcon: const Icon(Icons.search)),
                     onChanged: searchBook,
                   ),
-
                   SizedBox(
                     width: double.infinity,
                     child: ListView.builder(
@@ -167,7 +169,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                               BorderRadius.circular(20)),
                                       child: TextButton(
                                         onPressed: () {
-                                          print(book.title);
+                                          addData(book);
                                         },
                                         child: const Text(
                                           "Buy Now",
@@ -213,6 +215,22 @@ class _ExploreScreenState extends State<ExploreScreen> {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
-}
 
- 
+  void addData(Book selectedBook) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final String? previousDataString = prefs.getString('book_key');
+
+    List<Book>? previousData =
+        previousDataString == null ? null : Book.decode(previousDataString);
+      
+
+    if (previousData == null) {
+      final List<Book> books = [selectedBook];
+      prefs.setString('book_key', Book.encode(books));
+    } else {
+      previousData.add(selectedBook);
+      prefs.setString('book_key', Book.encode(previousData));
+    }
+  }
+}

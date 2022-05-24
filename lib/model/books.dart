@@ -25,12 +25,12 @@ class Book {
     );
   }
 
-  static Map<String, dynamic> toMap(Book music) => {
-        'title': music.title,
-        'author': music.author,
-        'imageUrl': music.imageUrl,
-        'description': music.description,
-        'price': music.price,
+  static Map<String, dynamic> toMap(Book book) => {
+        'title': book.title,
+        'author': book.author,
+        'imageUrl': book.imageUrl,
+        'description': book.description,
+        'price': book.price,
       };
 
   static String encode(List<Book> books) => json.encode(
