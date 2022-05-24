@@ -47,7 +47,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ? null
           : FloatingActionButton(
               onPressed: _scrollToTop,
-              child: const Icon(Icons.arrow_upward),
+              child: const Icon(
+                Icons.arrow_upward,
+                color: Colors.black,                
+              ),
+              backgroundColor: Colors.grey.shade100,
             ),
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -162,7 +166,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                           borderRadius:
                                               BorderRadius.circular(20)),
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          print(book.title);
+                                        },
                                         child: const Text(
                                           "Buy Now",
                                           style: TextStyle(

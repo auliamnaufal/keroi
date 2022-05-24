@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Book {
   Book({
     required this.title,
@@ -12,6 +14,35 @@ class Book {
   String imageUrl;
   String description;
   String price;
+
+  factory Book.fromJson(Map<String, dynamic> jsonData) {
+    return Book(
+      title: jsonData['title'],
+      author: jsonData['author'],
+      imageUrl: jsonData['imageUrl'],
+      description: jsonData['description'],
+      price: jsonData['price'],
+    );
+  }
+
+  static Map<String, dynamic> toMap(Book music) => {
+        'title': music.title,
+        'author': music.author,
+        'imageUrl': music.imageUrl,
+        'description': music.description,
+        'price': music.price,
+      };
+
+  static String encode(List<Book> books) => json.encode(
+        books
+            .map<Map<String, dynamic>>((book) => Book.toMap(book))
+            .toList(),
+      );
+
+  static List<Book> decode(String books) =>
+      (json.decode(books) as List<dynamic>)
+          .map<Book>((item) => Book.fromJson(item))
+          .toList();
 }
 
 List<Book> books = [
@@ -124,3 +155,4 @@ List<Book> exploreBooks = [
     price: '\$18.99',
   ),
 ];
+
