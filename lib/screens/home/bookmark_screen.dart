@@ -11,6 +11,15 @@ class BookmarkScreen extends StatefulWidget {
 }
 
 class _BookmarkScreenState extends State<BookmarkScreen> {
+
+  @override
+  void initState() {
+    setState(() {
+      
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,11 +32,11 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
 
             final List<Book> bookmarks = Book.decode(undecodedBookmarks!);
 
-
             return ListView.builder(
               itemCount: bookmarks.length,
               itemBuilder: (context, index) {
-                final Book book = exploreBooks.firstWhere((book) => book.title == bookmarks[index].title);
+                final Book book = exploreBooks
+                    .firstWhere((book) => book.title == bookmarks[index].title);
 
                 return ListTile(
                   title: Text(book.title),
@@ -40,13 +49,15 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
-                      final SharedPreferences prefs = await SharedPreferences.getInstance();
-                      final List<String> bookmarks = prefs.getStringList('bookmarks') ?? [];
-                      bookmarks.remove(book.title);
-                      prefs.setStringList('bookmarks', bookmarks);
+                      print("Deleted");
+                      // final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      // final Object stringBookmark = prefs.getString('book_key') ?? [];
+                      // final List<Object> bookmarks = Book.decode(stringBookmark);
+                      // bookmarks.remove(book.title);
+                      // prefs.setStringList('bookmarks', bookmarks);
 
-                      // refresh the list
-                      setState(() {});
+                      // // refresh the list
+                      // setState(() {});
                     },
                   ),
                 );
@@ -55,7 +66,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
           } else {
             return const Center(
               child: CircularProgressIndicator(),
-    );
+            );
           }
         },
       ),
