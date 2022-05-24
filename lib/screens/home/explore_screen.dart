@@ -14,11 +14,57 @@ class _ExploreScreenState extends State<ExploreScreen> {
   TextEditingController _controller = TextEditingController();
   List<Book> allBooks = exploreBooks;
 
+  bool _showBackToTopButton = false;
+
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= 100) {
+            _showBackToTopButton = true; // show the back-to-top button
+          } else {
+            _showBackToTopButton = false; // hide the back-to-top button
+          }
+        });
+      });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose(); // dispose the controller
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: _showBackToTopButton == false
+          ? null
+          : FloatingActionButton(
+              onPressed: _scrollToTop,
+              child: const Icon(Icons.arrow_upward),
+            ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.grey),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          elevation: 2,
+          title: const Text(
+            'Explore',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+        ),
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
+          controller: _scrollController,
           child: SafeArea(
             child: Padding(
               padding:
@@ -26,13 +72,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Explore Books",
-                    style: subHeadingStyle.copyWith(
-                      fontSize: 24,
-                    ),
-                  ),
-                  // Input field
                   const SizedBox(height: 20),
                   TextField(
                     controller: _controller,
@@ -43,7 +82,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide:
-                              const BorderSide(width: 1, color: Colors.black),
+                              BorderSide(width: 1, color: Colors.grey.shade400),
                         ),
                         filled: true,
                         fillColor: Colors.grey[100],
@@ -51,7 +90,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           horizontal: 20,
                           vertical: 10,
                         ),
-                        prefixIcon: Icon(Icons.search)),
+                        prefixIcon: const Icon(Icons.search)),
                     onChanged: searchBook,
                   ),
 
@@ -156,9 +195,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
       final bookTitle = book.title.toLowerCase();
       final queryLowerCase = query.toLowerCase();
 
-      print(bookTitle.contains(query));
-
-
       return bookTitle.contains(queryLowerCase);
     }).toList();
 
@@ -166,4 +202,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
       allBooks = suggestions;
     });
   }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
+  }
 }
+
+ 
