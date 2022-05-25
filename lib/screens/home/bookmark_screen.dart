@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keroi/helpers/Utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/books.dart';
@@ -51,11 +52,17 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                       final SharedPreferences prefs = await SharedPreferences.getInstance();
                       final String? stringBookmark = prefs.getString('book_key');
                       final List<Book> bookmarks = Book.decode(stringBookmark!);
+                      
+                      final snackBar = UtilsClass.snackBar(bookmarks[index]);
+                      
                       bookmarks.remove(bookmarks[index]);
                       prefs.setString('book_key', Book.encode(bookmarks));
 
-                      // refresh the list
+                      
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
                       setState(() {});
+                      // refresh the list
                     },
                   ),
                 );
