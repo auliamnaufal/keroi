@@ -70,7 +70,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
 
-                      final snackBar = UtilsClass.snackBar(bookmarks[index]);
+                      final snackBar = UtilsClass.deleteSnackBar(bookmarks[index], context);
 
                       UtilsClass.removeBookmark(index);
 
@@ -91,14 +91,5 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
         },
       ),
     );
-  }
-
-  Future<List<Book>> getData() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    final String? booksString = await prefs.getString('book_key');
-
-    final List<Book> book = Book.decode(booksString!);
-    return book;
   }
 }

@@ -61,7 +61,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.grey),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              Navigator.of(context).pop();
+              setState(() {
+                
+              });
+            },
           ),
           elevation: 2,
           title: const Text(
@@ -170,7 +175,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                               BorderRadius.circular(20)),
                                       child: TextButton(
                                         onPressed: () {
-                                          UtilsClass.addBookmark(book);
+                                          UtilsClass.addBookmark(book, context);
                                         },
                                         child: const Text(
                                           "Buy Now",
@@ -215,23 +220,5 @@ class _ExploreScreenState extends State<ExploreScreen> {
   void _scrollToTop() {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 2), curve: Curves.easeInOut);
-  }
-
-  void addData(Book selectedBook) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    final String? previousDataString = prefs.getString('book_key');
-
-    List<Book>? previousData =
-        previousDataString == null ? null : Book.decode(previousDataString);
-      
-
-    if (previousData == null) {
-      final List<Book> books = [selectedBook];
-      prefs.setString('book_key', Book.encode(books));
-    } else {
-      previousData.add(selectedBook);
-      prefs.setString('book_key', Book.encode(previousData));
-    }
   }
 }

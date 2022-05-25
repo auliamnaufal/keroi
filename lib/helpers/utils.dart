@@ -4,17 +4,33 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../model/books.dart';
 
 class UtilsClass {
-  static SnackBar snackBar(Book book) {
+  static SnackBar deleteSnackBar(Book book, context) {
     return SnackBar(
       content: Text("Deleted " + book.title),
       backgroundColor: (Colors.black54),
       action: SnackBarAction(
         label: 'UNDO',
         onPressed: () {
-          UtilsClass.addBookmark(book);
+          UtilsClass.addBookmark(book, context);
         },
         textColor: Colors.white,
       ),
+      duration: const Duration(seconds: 2),
+    );
+  }
+
+  static SnackBar cantAddSnackBar(Book book) {
+    return SnackBar(
+      content: Text("Already Bookmarked " + book.title),
+      backgroundColor: (Colors.black54),
+      duration: const Duration(seconds: 2),
+    );
+  }
+
+  static SnackBar successAddSnackBar(Book book) {
+    return SnackBar(
+      content: Text(book.title + " Bookmarked"),
+      backgroundColor: (Colors.black54),
       duration: const Duration(seconds: 2),
     );
   }
@@ -30,7 +46,7 @@ class UtilsClass {
   }
 
   // add data to shared preferences
-  static Future<void> addBookmark(Book book) async {
+  static Future<void> addBookmark(Book book, context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? previousDataString = prefs.getString('book_key');
 
@@ -42,7 +58,15 @@ class UtilsClass {
       prefs.setString('book_key', Book.encode(books));
     } else {
       final List<Book> books = [...previousData, book];
-      prefs.setString('book_key', Book.encode(books));
+      
+      // check if book is already bookmarked
+      if (previousData.any((cBook) => cBook.title == book.title)) {
+        ScaffoldMessenger.of(context).showSnackBar(cantAddSnackBar(book));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(successAddSnackBar(book));
+        prefs.setString('book_key', Book.encode(books));
+      }
+
     }
   }
 
