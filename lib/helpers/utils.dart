@@ -10,9 +10,12 @@ class UtilsClass {
       backgroundColor: (Colors.black54),
       action: SnackBarAction(
         label: 'UNDO',
-        onPressed: () {},
+        onPressed: () {
+          UtilsClass.addBookmark(book);
+        },
+        textColor: Colors.white,
       ),
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
   }
 

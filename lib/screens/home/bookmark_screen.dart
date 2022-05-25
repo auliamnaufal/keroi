@@ -53,7 +53,6 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                       UtilsClass.removeBookmark(index);
 
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      
 
                       setState(() {});
                       // refresh the list
