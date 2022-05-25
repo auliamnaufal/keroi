@@ -53,6 +53,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             }
 
             return ListView.builder(
+               physics: BouncingScrollPhysics(),
               itemCount: bookmarks.length,
               itemBuilder: (context, index) {
                 final Book book = exploreBooks

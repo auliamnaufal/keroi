@@ -63,9 +63,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             icon: const Icon(Icons.arrow_back, color: Colors.grey),
             onPressed: () {
               Navigator.of(context).pop();
-              setState(() {
-                
-              });
+              setState(() {});
             },
           ),
           elevation: 2,
@@ -77,6 +75,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
         ),
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           controller: _scrollController,
           child: SafeArea(
             child: Padding(
@@ -89,21 +88,25 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   TextField(
                     controller: _controller,
                     decoration: InputDecoration(
-                        hintText: "What are you looking for?",
-                        hintStyle: subHeadingStyle.copyWith(
-                            fontSize: 14, fontWeight: FontWeight.w400),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                              BorderSide(width: 1, color: Colors.grey.shade400),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey[100],
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                        prefixIcon: const Icon(Icons.search)),
+                      hintText: "What are you looking for?",
+                      hintStyle: subHeadingStyle.copyWith(
+                          fontSize: 14, fontWeight: FontWeight.w400),
+                      border: InputBorder.none,
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      prefixIcon: const Icon(Icons.search),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.clear),
+                        onPressed: () {
+                          _controller.clear();
+                          searchBook;
+                        },
+                      ),
+                    ),
                     onChanged: searchBook,
                   ),
                   SizedBox(

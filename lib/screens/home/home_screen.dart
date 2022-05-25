@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 15.0, left: 20.0, right: 20.0),
