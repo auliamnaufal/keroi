@@ -14,9 +14,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
 
   @override
   void initState() {
-    setState(() {
-      
-    });
+    setState(() {});
     super.initState();
   }
 
@@ -50,14 +48,14 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
                       print("Deleted");
-                      // final SharedPreferences prefs = await SharedPreferences.getInstance();
-                      // final Object stringBookmark = prefs.getString('book_key') ?? [];
-                      // final List<Object> bookmarks = Book.decode(stringBookmark);
-                      // bookmarks.remove(book.title);
-                      // prefs.setStringList('bookmarks', bookmarks);
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      final String? stringBookmark = prefs.getString('book_key');
+                      final List<Book> bookmarks = Book.decode(stringBookmark!);
+                      bookmarks.remove(bookmarks[index]);
+                      prefs.setString('book_key', Book.encode(bookmarks));
 
-                      // // refresh the list
-                      // setState(() {});
+                      // refresh the list
+                      setState(() {});
                     },
                   ),
                 );

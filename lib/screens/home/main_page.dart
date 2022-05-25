@@ -84,9 +84,6 @@ class _MainPageState extends State<MainPage> {
       case 1:
         return BookmarkScreen();
         break;
-      case 2:
-        return ExploreScreen();
-        break;
       default:
         return HomeScreen(username: username);
     }
