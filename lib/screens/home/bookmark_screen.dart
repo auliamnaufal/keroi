@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keroi/helpers/Utils.dart';
+import 'package:keroi/screens/home/explore_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/books.dart';
@@ -29,6 +30,27 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             final String? undecodedBookmarks = prefs?.getString('book_key');
 
             final List<Book> bookmarks = Book.decode(undecodedBookmarks!);
+
+            if (bookmarks.length <= 0) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('No Bookmarks', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10),
+                    TextButton(
+                      child: Text('Add Bookmarks', style: TextStyle(fontSize: 14, color: Colors.blue.shade500)),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ExploreScreen()));
+                      },
+                    )
+                  ],
+                ),
+              );
+            }
 
             return ListView.builder(
               itemCount: bookmarks.length,
