@@ -62,8 +62,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.grey),
             onPressed: () {
-              Navigator.of(context).pop();
-              setState(() {});
+              Navigator.pop(context);
             },
           ),
           elevation: 2,
@@ -168,9 +167,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                           fontWeight: FontWeight.w400,
                                           color: Colors.grey),
                                     ),
-                                    const SizedBox(height: 10),
+                                    const SizedBox(height: 20),
                                     Container(
-                                      width: 110,
+                                      width: 130,
                                       height: 40,
                                       decoration: BoxDecoration(
                                           color: Colors.blue.shade500,
@@ -181,11 +180,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                           UtilsClass.addBookmark(book, context);
                                         },
                                         child: const Text(
-                                          "Buy Now",
+                                          "Add to Bookmark",
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.normal),
                                         ),
                                       ),
                                     )

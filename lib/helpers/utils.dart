@@ -16,6 +16,7 @@ class UtilsClass {
         textColor: Colors.white,
       ),
       duration: const Duration(seconds: 2),
+      behavior: SnackBarBehavior.floating,
     );
   }
 
@@ -24,6 +25,7 @@ class UtilsClass {
       content: Text("Already Bookmarked " + book.title),
       backgroundColor: (Colors.black54),
       duration: const Duration(seconds: 2),
+      behavior: SnackBarBehavior.floating,
     );
   }
 
@@ -32,6 +34,7 @@ class UtilsClass {
       content: Text(book.title + " Bookmarked"),
       backgroundColor: (Colors.black54),
       duration: const Duration(seconds: 2),
+      behavior: SnackBarBehavior.floating,
     );
   }
 
