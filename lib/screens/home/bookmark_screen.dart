@@ -12,7 +12,6 @@ class BookmarkScreen extends StatefulWidget {
 }
 
 class _BookmarkScreenState extends State<BookmarkScreen> {
-
   @override
   void initState() {
     setState(() {});
@@ -48,18 +47,13 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
-                      print("Deleted");
-                      final SharedPreferences prefs = await SharedPreferences.getInstance();
-                      final String? stringBookmark = prefs.getString('book_key');
-                      final List<Book> bookmarks = Book.decode(stringBookmark!);
-                      
-                      final snackBar = UtilsClass.snackBar(bookmarks[index]);
-                      
-                      bookmarks.remove(bookmarks[index]);
-                      prefs.setString('book_key', Book.encode(bookmarks));
 
-                      
+                      final snackBar = UtilsClass.snackBar(bookmarks[index]);
+
+                      UtilsClass.removeBookmark(index);
+
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      
 
                       setState(() {});
                       // refresh the list

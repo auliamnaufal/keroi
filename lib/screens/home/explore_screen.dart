@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:keroi/helpers/Utils.dart';
 import 'package:keroi/model/books.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -169,7 +170,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                               BorderRadius.circular(20)),
                                       child: TextButton(
                                         onPressed: () {
-                                          addData(book);
+                                          UtilsClass.addBookmark(book);
                                         },
                                         child: const Text(
                                           "Buy Now",

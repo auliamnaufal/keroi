@@ -10,17 +10,16 @@ class UtilsClass {
       backgroundColor: (Colors.black54),
       action: SnackBarAction(
         label: 'UNDO',
-        onPressed: () {
-          
-        },
+        onPressed: () {},
       ),
+      duration: Duration(seconds: 2),
     );
   }
 
   // get all data from shared preferences
   static Future<List<Book>> getBookmarks() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? undecodedBookmarks = prefs?.getString('book_key');
+    final String? undecodedBookmarks = prefs.getString('book_key');
 
     final List<Book> bookmarks = Book.decode(undecodedBookmarks!);
 
@@ -45,7 +44,7 @@ class UtilsClass {
   }
 
   // remove data from shared preferences
-  static Future<void> removeBookmark(Book book) async {
+  static Future<void> removeBookmark(int index) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? previousDataString = prefs.getString('book_key');
 
@@ -56,7 +55,7 @@ class UtilsClass {
       return;
     } else {
       final List<Book> books = [...previousData];
-      books.remove(book);
+      books.remove(books[index]);
       prefs.setString('book_key', Book.encode(books));
     }
   }
