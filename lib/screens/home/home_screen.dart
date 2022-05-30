@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   _genre(0, text: "Novel", icon: Icons.book_outlined),
                   _genre(1, text: "Sport", icon: Icons.sports_motorsports),
-                  _genre(2, text: "Crime", icon: Icons.fireplace),
+                  _genre(2, text: "Islami", icon: Icons.brightness_2_outlined),
                   _genre(3, text: "Science", icon: Icons.science),
                   _genre(4, text: "Self-Help", icon: Icons.psychology),
                 ],
