@@ -47,6 +47,24 @@ class Book {
 
 List<Book> books = [
   Book(
+    title: "Nalar Tasawuf Sebagai Revolusi Pendidikan Islam",
+    author: 'Istania Widayati Hidayati',
+    imageUrl:
+        'https://penerbitbukudeepublish.com/wp-content/uploads/2019/09/NALAR-TASAWUF-DALAM-PENDIDIKAN-ISLAM_Istania-Widayati-Hidayati-M.Pd-depan-scaled.jpg',
+    description:
+        "Buku islam best seller yang kedua adalah buku berjudul Nalar Tasawuf Sebagai Revolusi Pendidikan Islam, karya Istania Widayati Hidayati. Buku ini cocok buat kamu yang tertarik ingin belajar tasawuf ini. Buku ini pastinya sangat bermanfaat buat kamu. Bahkan kamu yang tidak memiliki dasar pendidikan tasawuf, tetap bisa memahami. Karena di bab awal, ditulis pengantar tasawuf pendidikan. Buku islam best seller juga akan memperkenalkan tasawuf klasik menuju tasawuf revolusioner. Nah, di bab ini memang sedikit menarik untuk diulas. Karena di dalamnya tentu saja ada banyak hal yang bisa kamu pelajari. Dari tadi mengulas tentang tasawuf, tetapi belum tahu tasawuf itu apa? Jadi tasawuf adalah cabang ilmu yang tidak mudah pudar eksistensinya. Dapat dikatakan bahwa tasawuf mengendalikan ruh manusia agar tidak terkontaminasi dengan keduniawiaan yang terus maju dan berkembang. Di sana kamu pun akan mempelajari praktik tasawuf itu apa saja, karena di sana ada banyak sekali aliran tasawuf yang bisa kamu pelajari. Tahukah kamu, jika orang yang mempelajari tasawuf bisa mendapatkan gelar sufi. sayangnya tidak semua orang yang mempelajari tasawuf bisa mendapatkan gelar ini. Hanya orang yang sudah benar-benar mempraktekan saja. Jika masih ada yang binggung apa itu sufi, kamu juga bisa pelajari di dalam bukunya ini.",
+    price: '\$2.59',
+  ),
+  Book(
+    title: "Secrets of Divine Love: Sebuah Perjalanan Spiritual yang Mendalam tentang Islam",
+    author: 'A. Helwa',
+    imageUrl:
+        'https://www.gramedia.com/blog/content/images/2022/04/WhatsApp_Image_2022-01-06_at_08.45.44.jpeg',
+    description:
+        "Menjadi buku best-seller #1 International, buku ini menggunakan pendekatan rasional namun berbasis Al-Qur'an. Tentunya mencerahkan pikiran dan menginspirasi jiwa menuju keintiman yang lebih dalam dengan Tuhan. Dengan merangkai puluhan kisah yang menginspirasi, ayat-ayat Al-Qur'an, Hadis, puisi Rumi dan Hafez, psikologi dan sains, penulis menjelaskan Islam dengan cara yang mudah dicerna dan menginspirasi bagi milenial Muslim.",
+    price: '\$6.59',
+  ),
+  Book(
     title: 'The Alchemist',
     author: 'Paulo Coelho',
     imageUrl: 'https://blackwells.co.uk/jacket/l/9780008144227.jpg',

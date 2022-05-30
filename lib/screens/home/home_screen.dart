@@ -96,10 +96,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         SizedBox(height: 20,),
-                        Text(
-                          books[0].title,
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                        Container(
+                          width: 170,
+                          child: Text(
+                            books[0].title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
                         ),
                         SizedBox(height: 5,),
 
