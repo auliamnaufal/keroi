@@ -128,21 +128,30 @@ List<Book> exploreBooks = [
     price: '\$11.99',
   ),
   Book(
-    title: "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life",
-    author: 'Mark Manson',
-    imageUrl:
-        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1465761302i/28257707.jpg',
-    description:
-        "In this generation-defining self-help guide, a superstar blogger cuts through the crap to show us how to stop trying to be \"positive\" all the time so that we can truly become better, happier people. For decades, we’ve been told that positive thinking is the key to a happy, rich life. \"F**k positivity,\" Mark Manson says. \"Let’s be honest, shit is f**ked and we have to live with it.\" In his wildly popular Internet blog, Manson doesn’t sugarcoat or equivocate. He tells it like it is—a dose of raw, refreshing, honest truth that is sorely lacking today. The Subtle Art of Not Giving a F**k is his antidote to the coddling, let’s-all-feel-good mindset that has infected American society and spoiled a generation, rewarding them with gold medals just for showing up. Manson makes the argument, backed both by academic research and well-timed poop jokes, that improving our lives hinges not on our ability to turn lemons into lemonade, but on learning to stomach lemons better. Human beings are flawed and limited—\"not everybody can be extraordinary, there are winners and losers in society, and some of it is not fair or your fault.\" Manson advises us to get to know our limitations and accept them. Once we embrace our fears, faults, and uncertainties, once we stop running and avoiding and start confronting painful truths, we can begin to find the courage, perseverance, honesty, responsibility, curiosity, and forgiveness we seek. There are only so many things we can give a f**k about so we need to figure out which ones really matter, Manson makes clear. While money is nice, caring about what you do with your life is better, because true wealth is about experience. A much-needed grab-you-by-the-shoulders-and-look-you-in-the-eye moment of real-talk, filled with entertaining stories and profane, ruthless humor, The Subtle Art of Not Giving a F**k is a refreshing slap for a generation to help them lead contented, grounded lives.",
-    price: '\$12.59',
-  ),
-  Book(
     title: "Filosofi Teras",
     author: 'Henry Manampiring',
     imageUrl:
         'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1548033656i/42861019.jpg',
     description:
         "Apakah kamu sering merasa khawatir akan banyak hal? baperan? susah move-on? mudah tersinggung dan marah-marah di social media maupun dunia nyata? Lebih dari 2.000 tahun lalu, sebuah mazhab filsafat menemukan akar masalah dan juga solusi dari banyak emosi negatif. Stoisisme, atau Filosofi Teras, adalah filsafat Yunani-Romawi kuno yang bisa membantu kita mengatasi emosi negatif dan menghasilkan mental yang tangguh dalam menghadapi naik-turunnya kehidupan. Jauh dari kesan filsafat sebagai topik berat dan mengawang-awang, Filosofi Teras justru bersifat praktis dan relevan dengan kehidupan Generasi Milenial dan Gen-Z masa kini.",
+    price: '\$6.59',
+  ),
+  Book(
+    title: "Nalar Tasawuf Sebagai Revolusi Pendidikan Islam",
+    author: 'Istania Widayati Hidayati',
+    imageUrl:
+        'https://penerbitbukudeepublish.com/wp-content/uploads/2019/09/NALAR-TASAWUF-DALAM-PENDIDIKAN-ISLAM_Istania-Widayati-Hidayati-M.Pd-depan-scaled.jpg',
+    description:
+        "Buku islam best seller yang kedua adalah buku berjudul Nalar Tasawuf Sebagai Revolusi Pendidikan Islam, karya Istania Widayati Hidayati. Buku ini cocok buat kamu yang tertarik ingin belajar tasawuf ini. Buku ini pastinya sangat bermanfaat buat kamu. Bahkan kamu yang tidak memiliki dasar pendidikan tasawuf, tetap bisa memahami. Karena di bab awal, ditulis pengantar tasawuf pendidikan. Buku islam best seller juga akan memperkenalkan tasawuf klasik menuju tasawuf revolusioner. Nah, di bab ini memang sedikit menarik untuk diulas. Karena di dalamnya tentu saja ada banyak hal yang bisa kamu pelajari. Dari tadi mengulas tentang tasawuf, tetapi belum tahu tasawuf itu apa? Jadi tasawuf adalah cabang ilmu yang tidak mudah pudar eksistensinya. Dapat dikatakan bahwa tasawuf mengendalikan ruh manusia agar tidak terkontaminasi dengan keduniawiaan yang terus maju dan berkembang. Di sana kamu pun akan mempelajari praktik tasawuf itu apa saja, karena di sana ada banyak sekali aliran tasawuf yang bisa kamu pelajari. Tahukah kamu, jika orang yang mempelajari tasawuf bisa mendapatkan gelar sufi. sayangnya tidak semua orang yang mempelajari tasawuf bisa mendapatkan gelar ini. Hanya orang yang sudah benar-benar mempraktekan saja. Jika masih ada yang binggung apa itu sufi, kamu juga bisa pelajari di dalam bukunya ini.",
+    price: '\$2.59',
+  ),
+  Book(
+    title: "Secrets of Divine Love: Sebuah Perjalanan Spiritual yang Mendalam tentang Islam",
+    author: 'A. Helwa',
+    imageUrl:
+        'https://www.gramedia.com/blog/content/images/2022/04/WhatsApp_Image_2022-01-06_at_08.45.44.jpeg',
+    description:
+        "Menjadi buku best-seller #1 International, buku ini menggunakan pendekatan rasional namun berbasis Al-Qur'an. Tentunya mencerahkan pikiran dan menginspirasi jiwa menuju keintiman yang lebih dalam dengan Tuhan. Dengan merangkai puluhan kisah yang menginspirasi, ayat-ayat Al-Qur'an, Hadis, puisi Rumi dan Hafez, psikologi dan sains, penulis menjelaskan Islam dengan cara yang mudah dicerna dan menginspirasi bagi milenial Muslim.",
     price: '\$6.59',
   ),
   Book(
@@ -153,15 +162,6 @@ List<Book> exploreBooks = [
     description:
         "The next step for applying the life-changing lessons of the bestseller Start With Why.With Start With Why, Simon Sinek inspired a movement to build a world in which the vast majority of us can feel safe while we are at work and fulfilled when we go home at night. However, many people have had trouble bringing the book's message into their own career and company. Now, along with two of his colleagues, Peter Docker and David Mead, he has created a guide to the most important step any business can take: finding your why. This easy-to-follow guide starts with the search for your personal why, and then expands to helping your colleagues find your organization's why. With detailed instructions on every stage in the process, the book also answer common concerns, such as: What if my why sounds like my competitor's? Can you have more than one why? And, if my work doesn't match my why, what do I do? Whether you're entry level or a CEO, whether your team is run by the founder or a recent hire, these simple steps will lead you on a path to a more fulfilling life and longterm success for you and your colleagues.",
     price: '\$12.99',
-  ),
-  Book(
-    title: "Everything is F*cked: A Book About Hope",
-    author: 'Mark Manson',
-    imageUrl:
-        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1550685003i/43808723.jpg',
-    description:
-        "From the author of the international mega-bestseller The Subtle Art of Not Giving A F*ck comes a counterintuitive guide to the problems of hope. We live in an interesting time. Materially, everything is the best it’s ever been—we are freer, healthier and wealthier than any people in human history. Yet, somehow everything seems to be irreparably and horribly f*cked—the planet is warming, governments are failing, economies are collapsing, and everyone is perpetually offended on Twitter. At this moment in history, when we have access to technology, education and communication our ancestors couldn’t even dream of, so many of us come back to an overriding feeling of hopelessness. What’s going on? If anyone can put a name to our current malaise and help fix it, it’s Mark Manson. In 2016, Manson published The Subtle Art of Not Giving A F*ck, a book that brilliantly gave shape to the ever-present, low-level hum of anxiety that permeates modern living. He showed us that technology had made it too easy to care about the wrong things, that our culture had convinced us that the world owed us something when it didn’t—and worst of all, that our modern and maddening urge to always find happiness only served to make us unhappier. Instead, the “subtle art” of that title turned out to be a bold challenge: to choose your struggle; to narrow and focus and find the pain you want to sustain. The result was a book that became an international phenomenon, selling millions of copies worldwide while becoming the #1 bestseller in 13 different countries.Now, in Everthing Is F*cked, Manson turns his gaze from the inevitable flaws within each individual self to the endless calamities taking place in the world around us. Drawing from the pool of psychological research on these topics, as well as the timeless wisdom of philosophers such as Plato, Nietzsche, and Tom Waits, he dissects religion and politics and the uncomfortable ways they have come to resemble one another. He looks at our relationships with money, entertainment and the internet, and how too much of a good thing can psychologically eat us alive. He openly defies our definitions of faith, happiness, freedom—and even of hope itself. With his usual mix of erudition and where-the-f*ck-did-that-come-from humor, Manson takes us by the collar and challenges us to be more honest with ourselves and connected with the world in ways we probably haven’t considered before. It’s another counterintuitive romp through the pain in our hearts and the stress of our soul. One of the great modern writers has produced another book that will set the agenda for years to come.",
-    price: '\$11.99',
   ),
 ];
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keroi/helpers/Utils.dart';
+import 'package:keroi/screens/detail_screen.dart';
 import 'package:keroi/screens/home/explore_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,6 +68,9 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                     width: 60,
                     height: 80,
                   ),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(book: book, color: Colors.pinkAccent.shade100,)));
+                  },
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
