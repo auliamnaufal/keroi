@@ -234,6 +234,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.clip,
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
